@@ -70,8 +70,8 @@ resource "aws_db_instance" "medusa_db" {
   engine         = "postgres"
   engine_version = "12.4"
   instance_class = "db.t2.micro"
-  username       = var.db_username
-  password       = var.db_password
+  username       = "medusa"
+  password       = "medusa@12"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
   db_subnet_group_name = aws_db_subnet_group.medusa_db_subnet_group.name
 }
