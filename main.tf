@@ -69,6 +69,6 @@ resource "aws_db_instance" "medusa_db" {
   username       = "medusa"
   password       = "medusa01"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
-  db_subnet_group_name = aws_db_subnet_group.medusa_db_subnet_group.name
+
   allocated_storage = 20 # Add this line, specify the desired storage size in GBS
   }
