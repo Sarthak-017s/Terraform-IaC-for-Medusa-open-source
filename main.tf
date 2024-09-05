@@ -63,12 +63,10 @@ resource "aws_instance" "medusa_instance" {
 
 # Create RDS Instance
 resource "aws_db_instance" "medusa_db" {
-  engine               = "mysql"
-  vpc_security_group_ids = [aws_security_group.medusa_sg.id]
+  engine           = "mysql"
+  instance_class   = "db.t3.micro"
+  username         = "medusa"
+  password         = "medusa01"
+  allocated_storage = 20
+}
 
-  instance_class = "db.t3.micro"
-  username       = "medusa"
-  password       = "medusa01"
-
-  allocated_storage = 20 # Add this line, specify the desired storage size in GBS
-  }
