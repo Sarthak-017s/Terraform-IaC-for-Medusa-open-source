@@ -65,7 +65,7 @@ resource "aws_instance" "medusa_instance" {
 resource "aws_db_instance" "medusa_db" {
   engine               = "mysql"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
-  subnet_id = aws_subnet.medusa_subnet.id
+
   instance_class = "db.t3.micro"
   username       = "medusa"
   password       = "medusa01"
