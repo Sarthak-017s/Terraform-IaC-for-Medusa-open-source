@@ -62,7 +62,7 @@ resource "aws_instance" "medusa_instance" {
 # Create DB Subnet Group
 resource "aws_db_subnet_group" "medusa_db_subnet_group" {
   name       = "medusa_db_subnet_group"
-  subnet_ids = [aws_subnet.medusa_subnet.id]
+  subnet_ids = [aws_subnet.medusa_subnet.id, aws_subnet.medusa_subnet2.id]
 }
 
 # Create RDS Instance
@@ -70,10 +70,9 @@ resource "aws_db_instance" "medusa_db" {
   engine         = "postgres"
   engine_version = "12.4"
   instance_class = "db.t2.micro"
-  username       = "medusa"
-  password       = "medusa@12"
+  username       = var.db_username
+  password       = var.db_password
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
   db_subnet_group_name = aws_db_subnet_group.medusa_db_subnet_group.name
-}
-
-
+  allocated_storage = 20 # Add this line, specify the desired storage size in GBS
+  }
