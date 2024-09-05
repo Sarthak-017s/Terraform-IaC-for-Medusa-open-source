@@ -54,7 +54,7 @@ resource "aws_security_group" "medusa_sg" {
 # Create EC2 Instance
 resource "aws_instance" "medusa_instance" {
   ami           = "ami-0e86e20dae9224db8" # Replace with Medusa-compatible AMI
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
   subnet_id = aws_subnet.medusa_subnet.id
 }
