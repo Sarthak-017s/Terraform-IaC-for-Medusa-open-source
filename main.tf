@@ -59,11 +59,7 @@ resource "aws_instance" "medusa_instance" {
   subnet_id = aws_subnet.medusa_subnet.id
 }
 
-# Create DB Subnet Group
-resource "aws_db_subnet_group" "medusa_db_subnet_group" {
-  name       = "medusa_db_subnet_group"
-  subnet_ids = [aws_subnet.medusa_subnet.id, aws_subnet.medusa_subnet2.id]
-}
+
 
 # Create RDS Instance
 resource "aws_db_instance" "medusa_db" {
