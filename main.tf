@@ -64,7 +64,7 @@ resource "aws_instance" "medusa_instance" {
 # Create RDS Instance
 resource "aws_db_instance" "medusa_db" {
   engine               = "mysql"
-  engine_version       = "8.0.28"
+  engine_version       = "8.0.23"
   instance_class = "db.t2.micro"
   username       = "medusa"
   password       = "medusa01"
